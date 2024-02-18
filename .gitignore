@@ -7,6 +7,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/gcs
 .env
 .env.backup
 .env.production
