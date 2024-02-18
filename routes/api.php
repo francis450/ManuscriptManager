@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FilesController;
+use App\Http\Controllers\SubmissionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,5 @@ Route::post('/upload', [FilesController::class, 'store']);
 Route::get('/download/{file}', [FilesController::class, 'download']);
 
 Route::get('/files', [FilesController::class, 'index']);
+
+Route::get('/submissions/{id}/documents', [SubmissionController::class, 'show']);

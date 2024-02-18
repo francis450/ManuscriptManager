@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FilesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubmissionCallController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -34,11 +35,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    // Route::get('/upload', function () {
-    //     return Inertia::render('Upload');
-    // })->name('upload');
     Route::post('/upload', [FilesController::class, 'store']);
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/submissionCall/{submissionCall}', [SubmissionCallController::class, 'show'])->name('submissionCall.show');
+    Route::get('/submissionCalls', [SubmissionCallController::class, 'index'])->name('submissionCalls.index');
+    Route::post('/submissionCallForm', [SubmissionCallController::class, 'store'])->name('submissionCallForm.store');
+    // Route::post('/submissionCall', [SubmissionCallController::class, 'destroy'])->name('submissionCall.destroy');
+    // Route::get('/submissionCall', [SubmissionCallController::class, 'destroy'])->name('submissionCall.edit');
 });
 
 require __DIR__.'/auth.php';

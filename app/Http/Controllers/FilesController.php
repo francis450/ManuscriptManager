@@ -13,11 +13,10 @@ class FilesController extends Controller
     {
         $name = !is_null($filename) ? $filename : Str::random(25);
 
-        return $file->storeAs(
-            $folder,
-            $name . "." . $file->getClientOriginalExtension(),
-            ['gcs']
-        );
+        // store file in gcs and return the file name
+        $file = Storage::disk('gcs')->put($folder, $file, []);
+
+        return $file;
     }
 
     public function store(Request $request)
@@ -44,7 +43,7 @@ class FilesController extends Controller
 
     public function index()
     {
-        $files = Storage::files('submission');
+        $files = Storage::disk('gcs')->allFiles();
 
         return response()->json([
             'files' => $files

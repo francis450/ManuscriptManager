@@ -24,6 +24,10 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
                                 </NavLink>
+                                {/* The following navlink should only be view by admin/faculty */}
+                                <NavLink href={route('submissionCalls.index')} active={route().current('submissionCalls.index')}>
+                                    My Calls
+                                </NavLink>
                             </div>
                         </div>
 
@@ -115,7 +119,7 @@ export default function Authenticated({ user, header, children }) {
 
             {header && (
                 <header className="bg-white shadow">
-                    <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
+                    <div className="max-w-7xl mx-auto py-3 px-2 sm:px-6 lg:px-8">{header}</div>
                 </header>
             )}
 
