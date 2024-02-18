@@ -3,7 +3,14 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Document;
+use App\Models\Review;
+use App\Models\Submission;
+use App\Models\SubmissionCall;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Testing\Fakes\Fake;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +19,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->create([
+            'name' => fake()->name(),
+            'email' => fake()->email(),
+        ]);
+        
+        SubmissionCall::factory(10)->create();
+
+        Submission::factory(10)->create();
+
+        Review::factory(40)->create();
+
+        Document::factory(50)->create();
     }
 }
