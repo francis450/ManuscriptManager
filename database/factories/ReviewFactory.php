@@ -20,8 +20,8 @@ class ReviewFactory extends Factory
             'submission_id' => $this->faker->numberBetween(1, 10),
             'rating' => $this->faker->numberBetween(1, 5),
             'date_reviewed' => $this->faker->dateTimeThisYear(),
-            'reviewer' => $this->faker->numberBetween(1, 10),
-            'status' => $this->faker->randomElement(['accepted', 'rejected', 'pending']),
+            'reviewer' => $this->faker->numberBetween(1, 5),
+            'status' => $this->faker->randomElement(['approved', 'rejected', 'pending']),
             'comment' => $this->faker->text(),
         ];
     }

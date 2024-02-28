@@ -24,10 +24,13 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
                                 </NavLink>
-                                {/* The following navlink should only be view by admin/faculty */}
-                                <NavLink href={route('submissionCalls.index')} active={route().current('submissionCalls.index')}>
-                                    My Calls
-                                </NavLink>
+
+                                {/* show this navlink if user is admin only */}
+                                {user.role === 'admin' && (
+                                    <NavLink href={route('submissionCalls.index')} active={route().current('submissionCalls.index')}>
+                                        My Calls
+                                    </NavLink>
+                                )}
                             </div>
                         </div>
 

@@ -46,4 +46,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Route::get('/submissionCall', [SubmissionCallController::class, 'destroy'])->name('submissionCall.edit');
 });
 
+Route::middleware(['auth:sanctum', 'verified'])->group(function (){
+    Route::get('/submit', function(){
+        return Inertia::render('Submit/SubmissionForm');
+    });
+
+});
+
 require __DIR__.'/auth.php';

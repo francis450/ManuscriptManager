@@ -13,10 +13,8 @@ class SubmissionCallController extends Controller
      */
     public function index()
     {
-        // Get all submission calls
-        $submissionCalls = SubmissionCall::all();
+        $submissionCalls = SubmissionCall::where('user_id', auth()->id())->get();
 
-        // Return the submission calls to the view
         return Inertia::render('SubmissionCalls/Index', [
             'submissionCalls' => $submissionCalls,
         ]);
