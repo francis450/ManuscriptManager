@@ -17,11 +17,19 @@ class SubmissionCall extends Model
         'deadline',
         'status',
         'user_id',
+        'form_id',
+        'form_type',
+        
     ];
 
     public function owner()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function form()
+    {
+        return $this->morphTo();
     }
 
     public function submissions()
@@ -31,7 +39,7 @@ class SubmissionCall extends Model
 
     public function documents()
     {
-        return $this->hasManyThrough(Document::class, Submission::class);
+        return $this->hasMany(Document::class);
     }
 
     public function reviews()
@@ -41,7 +49,7 @@ class SubmissionCall extends Model
 
     public function requirements()
     {
-        return $this->hasMany(Requirement::class);
+        return $this->hasOne(Requirement::class);
     }
 
     public function scopeActive($query)

@@ -30,7 +30,7 @@ const Trigger = ({ children }) => {
     );
 };
 
-const Content = ({ align = 'right', width = '48', contentClasses = 'py-1 bg-white', children }) => {
+const Content = ({ align = 'right', width = '48', contentClasses = 'py-1 bg-white', children }) => {    
     const { open, setOpen } = useContext(DropDownContext);
 
     let alignmentClasses = 'origin-top';
@@ -60,7 +60,7 @@ const Content = ({ align = 'right', width = '48', contentClasses = 'py-1 bg-whit
                 leaveTo="opacity-0 scale-95"
             >
                 <div
-                    className={`absolute z-50 mt-2 rounded-md shadow-lg ${alignmentClasses} ${widthClasses}`}
+                    className={`absolute z-50 w-full h-40 overflow-y-scroll mt-2 rounded-md shadow-lg ${alignmentClasses} ${widthClasses}`}
                     onClick={() => setOpen(false)}
                 >
                     <div className={`rounded-md ring-1 ring-black ring-opacity-5 ` + contentClasses}>{children}</div>
@@ -84,8 +84,24 @@ const DropdownLink = ({ className = '', children, ...props }) => {
     );
 };
 
+const DropdownItem = ({ className = '', children, ...props }) => {
+    return (
+        <button
+            type='button'
+            {...props}
+            className={
+                'block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out ' +
+                className
+            }
+        >
+            {children}
+        </button>
+    );
+}
+
 Dropdown.Trigger = Trigger;
 Dropdown.Content = Content;
 Dropdown.Link = DropdownLink;
+Dropdown.Item = DropdownItem;
 
 export default Dropdown;

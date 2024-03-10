@@ -16,6 +16,7 @@ class Document extends Model
         'extension',
         'size',
         'submission_id',
+        'submission_call_id',
         'path',
         'status',
     ];
@@ -30,8 +31,8 @@ class Document extends Model
         return $this->belongsTo(SubmissionCall::class);
     }
 
-    public function owner()
-    {
-        return $this->belongsTo(User::class);
-    }
+    // public function owner()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
 }

@@ -22,6 +22,8 @@ class SubmissionCallFactory extends Factory
             'deadline' => $this->faker->dateTimeBetween('now', '+1 year'),
             'status' => 'active',
             'user_id' => $this->faker->numberBetween(1, 10),
+            'form_template_id' => 1,
+            'form_template_type' => $this->faker->randomElement(['project_proposal', 'event_proposal', 'research_proposal']),                
         ];
     }
 }

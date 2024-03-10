@@ -42,7 +42,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/submissionCall/{submissionCall}', [SubmissionCallController::class, 'show'])->name('submissionCall.show');
     Route::get('/submissionCalls', [SubmissionCallController::class, 'index'])->name('submissionCalls.index');
     Route::post('/submissionCallForm', [SubmissionCallController::class, 'store'])->name('submissionCallForm.store');
-    // Route::post('/submissionCall', [SubmissionCallController::class, 'destroy'])->name('submissionCall.destroy');
+    Route::post('/submissionCall/{id}', [SubmissionCallController::class, 'update'])->name('submissionCall.update');
     // Route::get('/submissionCall', [SubmissionCallController::class, 'destroy'])->name('submissionCall.edit');
 });
 

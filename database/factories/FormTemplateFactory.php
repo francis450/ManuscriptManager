@@ -1,31 +1,23 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Factories;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-use App\Models\Document;
-use App\Models\FormTemplate;
-use App\Models\ProjectProposalForm;
-use App\Models\Review;
-use App\Models\Submission;
-use App\Models\SubmissionCall;
-use App\Models\User;
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Testing\Fakes\Fake;
-use SebastianBergmann\Template\Template;
-
-class DatabaseSeeder extends Seeder
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\FormTemplate>
+ */
+class FormTemplateFactory extends Factory
 {
     /**
-     * Seed the application's database.
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
      */
-    public function run(): void
+    public function definition(): array
     {
-        User::factory(10)->create();
-        
-        FormTemplate::create([
-            'type' => 'project_proposal',
+        return [
+            'type' => $this->faker()->randomElement(['project_proposal']),
             'fields' => [
                 [
                     'label' => 'Title',
@@ -58,18 +50,6 @@ class DatabaseSeeder extends Seeder
                     'required' => true
                 ],
             ]
-        ]);
-        
-        SubmissionCall::factory(10)->create();
-
-        Submission::factory(10)->create();
-
-        Review::factory(40)->create();
-
-        Document::factory(50)->create();
-
-        ProjectProposalForm::factory(1)->create();
-
-        
+        ];
     }
 }
