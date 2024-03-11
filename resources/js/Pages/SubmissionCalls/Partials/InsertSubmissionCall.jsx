@@ -15,11 +15,6 @@ export default function InsertSubmissionCall({ submissionCallForm, className = '
     const [selectedItems, setSelectedItems] = useState([]);
     const [selectedAttachments, setSelectedAttachments] = useState([]);
 
-    // var templateTypes = [];
-    // formTemplates.forEach(template => {
-    //     templateTypes = template.type;
-    // });
-
     const updateSelectedAttachments = (attachments) => {
         setSelectedAttachments(attachments);
     };
@@ -149,36 +144,12 @@ export default function InsertSubmissionCall({ submissionCallForm, className = '
                                 <InputLabel htmlFor="attachments" value={`Attachments (${count}/5)`} />
 
                                 <Attachments
-                                    onSelectAttachments={updateSelectedAttachments}
+                                   existingAttachments = {[]} onSelectAttachments={updateSelectedAttachments}
                                 />
 
                                 <InputError className="mt-2" message={errors.attachments} />
                             </div>
-                            { /* Form Template[0] fields */}
-
-                            {/* {formTemplates[0].fields.map((field, index) => (
-                                <div key={index}>
-                                    <InputLabel>{field.label}</InputLabel>
-                                    {field.type === 'select' ? (
-                                        <select
-                                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                        >
-                                            {field.options.map((option, optionIndex) => (
-                                                <option key={optionIndex}>{option}</option>
-                                            ))}
-                                        </select>
-                                    ) : field.type === 'textarea' ? (
-                                        <textarea
-                                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                        />
-                                    ) : (
-                                        <TextInput
-                                            type={field.type}
-                                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                        />
-                                    )}
-                                </div>
-                            ))} */}
+                         
                         </div>
                         <div className="col-span-2 gap-2">
                             {/* Requirements */}

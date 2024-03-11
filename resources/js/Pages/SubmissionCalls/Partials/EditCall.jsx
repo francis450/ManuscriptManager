@@ -30,10 +30,10 @@ const EditCall = ({ submissionCall }) => {
     };
 
     return (
-        <section className="max-w-xl">
+        <section className="max-w-xl mt-2">
             <header>
+                {/* <div className="border-b border-gray-200 mb-4"></div> */}
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Edit Submission Call Details</h2>
-                <div className="border-b border-gray-200 mb-4"></div>
                 <p className="mt-1 text-sm text-gray-600">
                     Update the submission call details
                 </p>

@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Trash } from '@/Svgs/Svgs';
-import InsertSubmissionCall from './InsertSubmissionCall';
 
-const Attachments = ({ onSelectAttachments }) => {
-    const [attachments, setAttachments] = useState([]);
+const Attachments = ({ existingAttachments, onSelectAttachments }) => {
+    const [attachments, setAttachments] = useState(existingAttachments);
+
+    useEffect(() => {
+        setAttachments(existingAttachments);
+    }, [existingAttachments]);
 
     const addAttachment = () => {
         if (attachments.length < 5) {
-            setAttachments([...attachments, {  file: null }]);
+            setAttachments([...attachments, { file: null }]);
         }
     };
 
@@ -15,7 +18,7 @@ const Attachments = ({ onSelectAttachments }) => {
         const updatedAttachments = [...attachments];
         updatedAttachments[index].description = value;
         setAttachments(updatedAttachments);
-        onSelectAttachments(updatedAttachments); // Call the function to update selected attachments
+        onSelectAttachments(updatedAttachments); 
     };
 
     const updateFile = (index, file) => {
@@ -32,13 +35,17 @@ const Attachments = ({ onSelectAttachments }) => {
         onSelectAttachments(updatedAttachments); // Call the function to update selected attachments
     };
 
+    console.log('Attachments:', attachments)
+
     return (
         <div className='w-full' >
             {attachments.map((attachment, index) => (
-                <div key={index} className='flex justify-between hr-gap-1 hr-m-y-1'>
+                <div key={index} className='flex m-2 justify-between hr-gap-1 hr-m-y-1'>
                     <input
                         type="file"
                         onChange={(e) => updateFile(index, e.target.files[0])}
+                        className='grid-colspan-2 w-full bg-gray-100 rounded p-2'
+                        // value={attachment.file}
                     />
                     <button
                         type='button'

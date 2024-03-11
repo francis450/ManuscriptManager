@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SubmissionCall;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -48,6 +49,16 @@ class FilesController extends Controller
         return response()->json([
             'files' => $files
         ]);
+    }
+
+    public function attachmentFiles($id)
+    {
+        // get attachment documents for current user
+        $attachmentDetails = SubmissionCall::find($id)->documents->where('submission_call_id', $id);  
+
+        return response()->json([
+            'attachmentDetails' => $attachmentDetails
+        ]);    
     }
 
 }
