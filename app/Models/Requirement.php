@@ -13,10 +13,9 @@ class Requirement extends Model
 
     protected $fillable = [
         'submission_call_id',
-        'type',
-        'name',
-        'description',
-        'status',
+        'file_types',
+        'max_file_size',
+        'max_files',
     ];
 
     public function submissionCall()

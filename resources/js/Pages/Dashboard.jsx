@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
+import SubmissionCallCard from '@/Components/SubmissionCallCard';
 
 export default function Dashboard({ auth }) {
     const [file, setFile] = useState(null);
@@ -44,12 +45,21 @@ export default function Dashboard({ auth }) {
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">Welcome to ManuScript Manager</div>
                     </div>
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-4">
-                        <div className="p-6">
-                            <form onSubmit={handleSubmit}>
+                    <div className="overflow-hidden w-full h-100 mt-4 grid grid-template-cols-4">
+                        <div className="p-6 grid-colspan-1">
+                            {/* <form onSubmit={handleSubmit}>
                                 <input type="file" onChange={handleFileChange} />
                                 <button type="submit">Upload</button>
-                            </form>
+                            </form> */}
+                            <SubmissionCallCard submissionCall={{
+                                title: 'Call for Papers',
+                                description: 'Submit your research papers for publication in our journal.',
+                                deadline: '2021-12-31',
+                                status: 'Open',
+                                visibility: 'Public',
+                                categories: ['Science', 'Technology'],
+                            }} />
+
                         </div>
                     </div>
                 </div>
