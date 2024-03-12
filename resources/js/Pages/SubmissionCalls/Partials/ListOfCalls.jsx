@@ -14,5 +14,5 @@ export default function ListOfCalls({ callForSubmissions }) {
                 ))}
             </div>
         </div>
-    );
+    );  
 }

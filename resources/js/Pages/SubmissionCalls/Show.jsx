@@ -37,9 +37,9 @@ const Show = ({ auth, submissionCall, tab}) => {
             case 2:
                 return <ReviewsTabContent reviews={submissionCall.reviews} />;
             case 3:
-            return <StatisticsTabContent submissions={submissions} />;
+                return <StatisticsTabContent submissions={submissions} />;
             case 4:
-            return <ActionsTabContent submissionCall={submissionCall} />;
+                return <ActionsTabContent submissionCall={submissionCall} />;
             default:
                 return <OverviewTabContent submissionCall={submissionCall} />;
                 

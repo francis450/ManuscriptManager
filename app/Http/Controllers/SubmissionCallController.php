@@ -143,8 +143,20 @@ class SubmissionCallController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SubmissionCall $submissionCall)
+    public function destroy($id)
     {
-        //
+        // find the submission call
+        $submissionCall = SubmissionCall::findOrFail($id);
+
+        // delete the submission call
+        $submissionCall->delete();
+
+        // return the submission calls index page
+        $submissionCalls = SubmissionCall::where('user_id', auth()->id())->get();
+
+        return Inertia::render('SubmissionCalls/Index', [
+            'submissionCalls' => $submissionCalls,
+            'formTemplates' => FormTemplate::all(),
+        ]);   
     }
 }
