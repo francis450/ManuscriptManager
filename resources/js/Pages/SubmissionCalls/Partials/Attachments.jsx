@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Trash } from '@/Svgs/Svgs';
 
-const Attachments = ({ existingAttachments, onSelectAttachments }) => {
-    const [attachments, setAttachments] = useState(existingAttachments);
+const Attachments = ({ onSelectAttachments }) => {
+    const [attachments, setAttachments] = useState([]);
 
-    useEffect(() => {
-        setAttachments(existingAttachments);
-    }, [existingAttachments]);
+    // useEffect(() => {
+    //     setAttachments(existingAttachments);
+    // }, [existingAttachments]);
 
     const addAttachment = () => {
         if (attachments.length < 5) {

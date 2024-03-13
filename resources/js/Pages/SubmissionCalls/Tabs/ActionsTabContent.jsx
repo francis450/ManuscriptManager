@@ -11,16 +11,14 @@ const ActionsTabContent = (submissionCall) => {
     console.log('Submission Call Details:', submissionCallDetails)
     return (
         <div className='px-4 py-6 bg-white shadow sm:rounded-lg'>
-            {/* Edit Submission Call */}
+            <ManageDocumentFilters />
             <EditCall submissionCall={submissionCallDetails} />
 
-            {/* Manage submission calls attachment files */}
             <ManageAttachmentFiles submissionCall={submissionCallDetails} />
 
 
-            {/* Delete submission call */}
-            <DeleteSubmissionCallForm submissionCall={submissionCallDetails}  />
 
+            <DeleteSubmissionCallForm submissionCall={submissionCallDetails}  />
 
         </div>
     );
