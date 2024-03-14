@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FilesController;
+use App\Http\Controllers\FormTemplateController;
 use App\Http\Controllers\SubmissionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,3 +30,5 @@ Route::get('/files', [FilesController::class, 'index']);
 Route::get('/submissions/{id}/documents', [SubmissionController::class, 'show']);
 
 Route::get('/attachmentFiles/submissionCall/{id}', [FilesController::class, 'attachmentFiles']);
+
+Route::get('/formTemplate/{id}', [FormTemplateController::class, 'show']);

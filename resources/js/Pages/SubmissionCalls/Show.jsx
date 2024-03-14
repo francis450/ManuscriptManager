@@ -37,7 +37,7 @@ const Show = ({ auth, submissionCall, tab}) => {
             case 2:
                 return <ReviewsTabContent reviews={submissionCall.reviews} />;
             case 3:
-                return <StatisticsTabContent submissions={submissions} />;
+                return <StatisticsTabContent submissions={submissionCall.submissions} />;
             case 4:
                 return <ActionsTabContent submissionCall={submissionCall} />;
             default:
@@ -61,8 +61,8 @@ const Show = ({ auth, submissionCall, tab}) => {
                     </div>
                 </div>
 
-                <div className="py-3">
-                    <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+                <div className="py-3 bg-white p-4 ">
+                    <div className="max-w-7xl  mx-auto sm:px-6 lg:px-8 space-y-6">
                         <Content content={renderTabContent(activeTab)} />
                     </div>
                 </div>
