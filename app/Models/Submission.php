@@ -23,7 +23,7 @@ class Submission extends Model
 
     public function submissionCall()
     {
-        return $this->belongsTo(SubmissionCall::class);
+        return $this->belongsTo(SubmissionCall::class, 'submission_call_id', 'id');
     }
 
     public function owner()

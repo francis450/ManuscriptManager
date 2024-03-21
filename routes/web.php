@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FilesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubmissionCallController;
+use App\Http\Controllers\SubmissionController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -43,7 +44,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('/submissionCallForm', [SubmissionCallController::class, 'store'])->name('submissionCallForm.store');
     Route::post('/submissionCall/{id}', [SubmissionCallController::class, 'update'])->name('submissionCall.update');
     Route::delete('/submissionCall/{id}', [SubmissionCallController::class, 'destroy'])->name('submissionCall.destroy');
-    
+    Route::post('/submissionCall/{id}/submit', [SubmissionController::class, 'store'])->name('submissionCall.submit');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
