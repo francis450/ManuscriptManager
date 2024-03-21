@@ -11,8 +11,8 @@ class DashboardController extends Controller
     
     public function index()
     {
-        // get submission all available submission calls
-        $submissionCalls = SubmissionCall::all();
+        // get submission all available submission calls with all related data
+        $submissionCalls = SubmissionCall::with('requirements')->get();
 
         return Inertia::render('Dashboard', [
             'submissionCalls' => $submissionCalls

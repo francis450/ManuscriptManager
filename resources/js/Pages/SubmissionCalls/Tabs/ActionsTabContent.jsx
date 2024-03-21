@@ -11,7 +11,7 @@ const ActionsTabContent = (submissionCall) => {
     console.log('Submission Call Details:', submissionCallDetails)
     return (
         <div className='px-4 py-6 bg-white shadow sm:rounded-lg'>
-            <ManageDocumentFilters />
+            {/* <ManageDocumentFilters /> */}
             <EditCall submissionCall={submissionCallDetails} />
 
             <ManageAttachmentFiles submissionCall={submissionCallDetails} />

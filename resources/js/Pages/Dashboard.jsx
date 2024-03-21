@@ -9,6 +9,7 @@ export default function Dashboard({ auth, submissionCalls }) {
     const [filterStatus, setFilterStatus] = useState('all');
     const [sortBy, setSortBy] = useState('latest');
 
+    console.log('Submission Calls:', submissionCalls);
 
     const filteredSubmissionCalls = submissionCalls.filter(submissionCall => {
         if (filterStatus === 'all') {
