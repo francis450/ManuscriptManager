@@ -47,6 +47,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('/submissionCall/{id}/submit', [SubmissionController::class, 'store'])->name('submissionCall.submit');
 });
 
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/submission/{submission}', [SubmissionController::class, 'show'])->name('submission.show');
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('/submit', function(){
         return Inertia::render('Submit/SubmissionForm');

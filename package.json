@@ -20,6 +20,8 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
-        "@heroicons/react": "^2.1.1"
+        "@heroicons/react": "^2.1.1",
+        "react-data-table-component": "^7.6.2",
+        "styled-components": "^6.1.8"   
     }
 }

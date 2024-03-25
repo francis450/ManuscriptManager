@@ -40,4 +40,8 @@ class Submission extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    public function reviewers(){
+        return $this->hasManyThrough(User::class, Review::class, 'submission_id', 'id', 'id', 'reviewer');
+    }
 }

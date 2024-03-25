@@ -4,9 +4,6 @@ import InsertSubmissionCall from "./Partials/InsertSubmissionCall";
 import ListOfCalls from "./Partials/ListOfCalls";
 
 export default function Index({ auth, submissionCallForm, submissionCalls, formTemplates}) {
-    console.log('submissionCalls:', submissionCalls);
-
-    console.log('Form Templates:', formTemplates);
     return (
         <Authenticated
             user={auth.user}
@@ -15,7 +12,6 @@ export default function Index({ auth, submissionCallForm, submissionCalls, formT
             <Head 
                 title="Submission Calls"                
             />
-
             <div className="py-3">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
                     <div className="p-2 sm:p-8 bg-white shadow sm:rounded-lg">

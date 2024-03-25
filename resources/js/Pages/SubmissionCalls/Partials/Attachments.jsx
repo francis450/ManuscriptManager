@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Trash } from '@/Svgs/Svgs';
+import ProgressBar from '../../../Components/ProgressBar';
 
 const Attachments = ({ onSelectAttachments }) => {
     const [attachments, setAttachments] = useState([]);
@@ -61,6 +62,7 @@ const Attachments = ({ onSelectAttachments }) => {
                 type='button'
                 className='mt-2 w-full bg-gray-500 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
             >
+                <ProgressBar value={20} color='red' />
                 + New Attachment
             </button>
         </div>
