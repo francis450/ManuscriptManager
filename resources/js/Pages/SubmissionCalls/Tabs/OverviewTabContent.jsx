@@ -1,7 +1,6 @@
 import { Cross, HourGlass } from '@/Svgs/Svgs';
 import React from 'react';
 import OverviewTable from '../Partials/OverviewTable';
-
 const OverviewTabContent = ({ submissionCall }) => {
     return (
         <>
@@ -21,12 +20,10 @@ const OverviewTabContent = ({ submissionCall }) => {
                     </div>
                 </div>
             </div>
-
             <div className="border border-gray-200 rounded-lg overflow-hidden">
                 <OverviewTable submissionCall={submissionCall} />
             </div>
         </>
     );
 };
-
 export default OverviewTabContent;

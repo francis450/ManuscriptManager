@@ -109,13 +109,12 @@ const SubmissionsTabContent = ({ submissions }) => {
                                         </table>
                                     </div>
                                 </div>
-                                <div>
+                                {/* <div>
                                     <h3 className="text-lg font-semibold mb-2">Reviews</h3>
                                     <div>
-                                        {/* Add reviews here */}
                                         <CardLink href={'laravel.com'} />
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         )}
                         <div className="flex pt-2 items-center text-gray-500">
