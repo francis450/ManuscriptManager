@@ -1,5 +1,4 @@
 import React from 'react';
-
 const ReviewsTabContent = ({ reviews }) => {
   return (
     <div>
@@ -27,5 +26,4 @@ const ReviewsTabContent = ({ reviews }) => {
     </div>
   );
 };
-
 export default ReviewsTabContent;

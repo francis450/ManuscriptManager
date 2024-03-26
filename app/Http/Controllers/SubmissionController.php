@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Document;
 use App\Models\Submission;
 use App\Models\SubmissionCall;
 use Illuminate\Http\Request;
@@ -12,6 +13,23 @@ use Inertia\Inertia;
 
 class SubmissionController extends Controller
 {
+
+    public function documents($id) {
+        // find the documents
+        $document = Document::findOrFail($id);
+
+        return response()->json([
+            $document
+        ]);
+    }
+    public function show(Submission $submission)
+    {
+        return Inertia::render('Submission/Show', [
+            'submission' => $submission->load(['documents', 'reviews.reviewer']),
+            'tab' => 0
+        ]);
+    }
+
     public function uploadFile(UploadedFile $file, $folder = null, $filename = null)
     {
         $name = !is_null($filename) ? $filename : Str::random(25);
@@ -58,13 +76,10 @@ class SubmissionController extends Controller
             }
         }
 
-        return Inertia::render(
-            'SubmissionCalls/Show',
-            [
-                'submissionCall' => $submissionCall->load(['submissions', 'reviews', 'documents', 'requirements']),
-                'tab' => 4,
-            ]
-        );
+        return Inertia::render('Submission/Show', [
+            'submission' => $submission->load(['documents', 'reviews', 'reviewers']),
+            'tab' => 0
+        ]);
     }
 
     // Other methods remain unchanged...

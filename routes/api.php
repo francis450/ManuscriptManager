@@ -27,7 +27,7 @@ Route::get('/download/{file}', [FilesController::class, 'download']);
 
 Route::get('/files', [FilesController::class, 'index']);
 
-Route::get('/submissions/{id}/documents', [SubmissionController::class, 'show']);
+Route::get('/document/{id}/', [SubmissionController::class, 'documents']);
 
 Route::get('/attachmentFiles/submissionCall/{id}', [FilesController::class, 'attachmentFiles']);
 
